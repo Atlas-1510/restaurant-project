@@ -27,4 +27,9 @@ export const titlePage = () => {
 
     page.appendChild(footer);
 
+    // Module Content Holder
+
+    let moduleContentHolder = document.createElement("div")
+    page.appendChild(moduleContentHolder)
+
 }
