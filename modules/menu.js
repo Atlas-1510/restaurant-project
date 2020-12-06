@@ -10,11 +10,25 @@ export const generateMenuContent = () => {
     const menuItemMaker = (name, price, description) => {
         let menuItem = document.createElement("div")
         menuItem.classList.add("menuItem")
-        let menuTitle = generateTitle(`${name} - ${price}`, "h3")
-        menuItem.appendChild(menuTitle)
+
+        // Basic menu item structure
+        let menuAndPriceHolder = document.createElement("div")
+        menuAndPriceHolder.classList.add("menuAndPriceHolder")
+        menuItem.appendChild(menuAndPriceHolder)
+        let menuTitle = document.createElement("div")
+        menuAndPriceHolder.appendChild(menuTitle)
+        let menuPrice = document.createElement("div")
+        menuAndPriceHolder.appendChild(menuPrice)
         let menuItemDescription = document.createElement("div")
-        menuItemDescription.textContent = description
         menuItem.appendChild(menuItemDescription)
+
+        //Insert menu item details
+        menuTitle.textContent = name.toUpperCase()
+        menuPrice.textContent = `$${price}`
+        menuItemDescription.textContent = description
+
+
+        // Publish menu item
         menuItems.push(menuItem)
     }
 

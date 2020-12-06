@@ -54,3 +54,23 @@ body {
     0% { opacity: 0;}
     100% { opacity: 1;}
 }
+
+/* ************************************ Module Stuff ************************************ */
+
+#contentHolder {
+    width: 50%;
+}
+
+
+/* ************************************ Menu Stuff ************************************ */
+
+.menuItem {
+    display: flex;
+    flex-direction: column;
+    width: 200px;
+}
+
+.menuAndPriceHolder {
+    display: flex;
+    justify-content: space-between;
+}
