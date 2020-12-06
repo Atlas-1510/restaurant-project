@@ -1,0 +1,56 @@
+:root {
+    --animation-duration: ;
+}
+
+html {
+    background-color: rgb(240, 208, 65);
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#header {
+    width: 80%;
+    min-width: 500px;
+    background-color: aqua;
+    display: flex;
+    justify-content: space-around;
+}
+
+.headerButton {
+    color: whitesmoke;
+    background-color: transparent;
+    border-color: transparent;
+    outline: none;
+    font-size: x-large
+}
+
+
+#logo {
+    position: absolute;
+}
+
+
+.fadeOut {
+    animation: fadeOut var(--animation-duration);
+    /* animation: fadeOut 500ms; */
+    animation-fill-mode: forwards;
+}
+
+@keyframes fadeOut {
+    0% { opacity: 1;}
+    100% { opacity: 0;}
+}
+
+.fadeIn {
+    animation: fadeIn var(--animation-duration);
+    animation-fill-mode: forwards;
+}
+
+@keyframes fadeIn {
+    0% { opacity: 0;}
+    100% { opacity: 1;}
+}

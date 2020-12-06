@@ -1,4 +1,4 @@
-export const loadContactContent = (moduleContentHolder) => {
+export const generateContactContent = (moduleContentHolder) => {
     let contactContent = document.createElement("div")
 
     let item = document.createElement("p")
@@ -6,5 +6,5 @@ export const loadContactContent = (moduleContentHolder) => {
 
     contactContent.appendChild(item)
 
-    moduleContentHolder.appendChild(contactContent)
+    return contactContent
 }

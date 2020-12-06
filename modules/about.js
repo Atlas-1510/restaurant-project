@@ -1,4 +1,4 @@
-export const loadAboutContent = (moduleContentHolder) => {
+export const generateAboutContent = () => {
     let aboutContent = document.createElement("div")
 
     let item = document.createElement("p")
@@ -6,5 +6,5 @@ export const loadAboutContent = (moduleContentHolder) => {
 
     aboutContent.appendChild(item)
 
-    moduleContentHolder.appendChild(aboutContent)
+    return aboutContent
 }

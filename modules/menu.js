@@ -1,23 +1,30 @@
 import { generateTitle } from "./utils/generateTitle.js"
 
-export const loadMenuContent = (moduleContentHolder) => {
+export const generateMenuContent = () => {
+
+    let menuContent = document.createElement("div")
+    menuContent.classList.add("menuContent")
+    let menuItems = []
 
     // A factory to produce menu items.
     const menuItemMaker = (name, price, description) => {
         let menuItem = document.createElement("div")
+        menuItem.classList.add("menuItem")
         let menuTitle = generateTitle(`${name} - ${price}`, "h3")
         menuItem.appendChild(menuTitle)
         let menuItemDescription = document.createElement("div")
         menuItemDescription.textContent = description
         menuItem.appendChild(menuItemDescription)
-        return menuItem
+        menuItems.push(menuItem)
     }
 
-    let menuContent = document.createElement("div")
+    menuItemMaker("Fried Eggs", 20, "Eggs done right!")
+    menuItemMaker("Bacon", 10, "Some dead pig")
+    menuItemMaker("Fried Rice", 15, "Asian style")
 
-    let firstMenuItem = menuItemMaker("Fried Eggs", 20, "Eggs done right!")
+    for (let i = 0; i < menuItems.length; i++) {
+        menuContent.appendChild(menuItems[i])
+    }
 
-    menuContent.appendChild(firstMenuItem)
-
-    moduleContentHolder.appendChild(menuContent)
+    return menuContent
 }

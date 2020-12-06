@@ -1,5 +1,10 @@
 export const clearModule = (moduleContentHolder) => {
-    while (moduleContentHolder.firstChild) {
-        moduleContentHolder.removeChild(moduleContentHolder.lastChild)
-    }
+
+    moduleContentHolder.addEventListener("animationend", () => {
+        while (moduleContentHolder.firstChild) {
+            moduleContentHolder.removeChild(moduleContentHolder.lastChild)
+        }
+    })
+
+    moduleContentHolder.classList.toggle("fadeOut")
 }
