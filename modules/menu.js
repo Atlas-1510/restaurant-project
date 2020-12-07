@@ -1,103 +1,123 @@
 import { generateTitle } from "./utils/generateTitle.js"
 import { insertImage } from "./utils/insertImage.js"
+import { capitaliseFirstLetter } from "./utils/capitaliseFirstLetter.js"
 
 export const generateMenuContent = () => {
 
-    // ********** Menu Data Set Up **********
-
-    const menuTypes = ["breakfast", "lunch", "snack", "drink"]
-
-    // ********** DOM Setup **********
+    // ********** Module Setup **********
 
     const menuCONTENT = document.createElement("div")
-    const menuGrid = document.createElement("div")
-    const menuImageHolder = document.createElement("div")
 
-    menuGrid.setAttribute("id", "menuGrid")
-    menuImageHolder.setAttribute("id", "menuImageHolder")
 
-    menuCONTENT.appendChild(menuGrid)
-    menuCONTENT.appendChild(menuImageHolder)
+    const menuInfo = (function () {
+        // ********** Menu Data Set Up **********
 
-    for (let i = 0; i < menuTypes.length; i++) {
-        let mealType = document.createElement("div")
-        mealType.classList.add(`${menuTypes[i]}-menu`)
-        let mealTypeTitle = document.createElement("div")
-        mealTypeTitle.textContent = menuTypes[i]
-        mealTypeTitle.classList.add("mealTypeTitle")
-        mealType.appendChild(mealTypeTitle)
-        menuGrid.appendChild(mealType)
-    }
+        const menuTypes = ["Breakfast", "Lunch", "Snacks", "Drinks"]
+        const menuItems = []
 
-    // ********** Helper Functions **********
+        // ********** DOM Setup **********
 
-    // Menu Item Factory
-    const _makeMenuitem = (title, price, description, type) => {
-        let menuItem = {
-            title: title,
-            price: price,
-            description: description,
-            type: type,
-        }
-        return menuItem
-    }
 
-    // Add menu item to DOM
-    const _insertMenuItemToDOM = (menuItem) => {
+        const menuGrid = document.createElement("div")
 
-        const _createMenuItemDOM = () => {
-            let menuItemElement = document.createElement("div")
-            let menuTitleAndPriceHolder = document.createElement("div")
-            let menuItemTitle = document.createElement("div")
-            let menuItemPrice = document.createElement("div")
-            let menuItemDescription = document.createElement("div")
 
-            menuItemTitle.classList.add("menuItemTitle")
-            menuItemPrice.classList.add("menuItemPrice")
-            menuItemDescription.classList.add("menuItemDescription")
+        menuGrid.setAttribute("id", "menuGrid")
 
-            menuTitleAndPriceHolder.appendChild(menuItemTitle)
-            menuTitleAndPriceHolder.appendChild(menuItemPrice)
-            menuItemElement.appendChild(menuTitleAndPriceHolder)
-            menuItemElement.appendChild(menuItemDescription)
 
-            return menuItemElement
+        menuCONTENT.appendChild(menuGrid)
+
+
+        for (let i = 0; i < menuTypes.length; i++) {
+            let mealType = document.createElement("div")
+            mealType.classList.add(`${menuTypes[i]}-menu`)
+            mealType.classList.add("mealTypeMenuSection")
+            let mealTypeTitle = document.createElement("div")
+            mealTypeTitle.textContent = menuTypes[i]
+            mealTypeTitle.classList.add("mealTypeTitle")
+            mealType.appendChild(mealTypeTitle)
+            menuGrid.appendChild(mealType)
         }
 
-        if (!menuTypes.includes(menuItem.type)) {
-            console.log("Invalid menu item type")
-            return 1
-        } else {
-            let menuItemElement = _createMenuItemDOM()
-            let menuItemTitle = menuItemElement.querySelector(".menuItemTitle")
-            let menuItemPrice = menuItemElement.querySelector(".menuItemPrice")
-            let menuItemDescription = menuItemElement.querySelector(".menuItemDescription")
+        // ********** Helper Functions **********
 
-            menuItemTitle.textContent = menuItem.title.toUpperCase()
-            menuItemPrice.textContent = `$${menuItem.price}`
-            menuItemDescription.textContent = menuItem.description
-
-            menuItemElement.classList.add(menuItem.type)
-
-            let MenuMealSection = menuGrid.querySelector(`.${menuItem.type}-menu`)
-            MenuMealSection.appendChild(menuItemElement)
+        // Menu Item Factory
+        const _makeMenuitem = (title, price, description, type) => {
+            let menuItem = {
+                title: title,
+                price: price,
+                description: description,
+                type: capitaliseFirstLetter(type),
+            }
+            menuItems.push(menuItem)
         }
-    }
 
-    // ********** Back-End Menu Design **********
+        // Add menu item to DOM
+        const _insertMenuItemToDOM = (menuItem) => {
 
-    const menuItems = []
+            const _createMenuItemDOM = () => {
+                let menuItemElement = document.createElement("div")
+                let menuTitleAndPriceHolder = document.createElement("div")
+                let menuItemTitle = document.createElement("div")
+                let menuItemPrice = document.createElement("div")
+                let menuItemDescription = document.createElement("div")
 
-    let testItem = _makeMenuitem("Hot Dog", 20, "A meat thing that sits on some bread", "lunch")
+                menuItemTitle.classList.add("menuItemTitle")
+                menuItemPrice.classList.add("menuItemPrice")
+                menuTitleAndPriceHolder.classList.add("menuTitleAndPriceHolder")
+                menuItemDescription.classList.add("menuItemDescription")
 
-    menuItems.push(testItem)
+                menuTitleAndPriceHolder.appendChild(menuItemTitle)
+                menuTitleAndPriceHolder.appendChild(menuItemPrice)
+                menuItemElement.appendChild(menuTitleAndPriceHolder)
+                menuItemElement.appendChild(menuItemDescription)
 
-    for (let i = 0; i < menuItems.length; i++) {
-        _insertMenuItemToDOM(menuItems[i])
-    }
+                return menuItemElement
+            }
+
+            if (!menuTypes.includes(menuItem.type)) {
+                console.log(`Invalid menu type: ${menuItem.type}`)
+                return 1
+            } else {
+                let menuItemElement = _createMenuItemDOM()
+                let menuItemTitle = menuItemElement.querySelector(".menuItemTitle")
+                let menuItemPrice = menuItemElement.querySelector(".menuItemPrice")
+                let menuItemDescription = menuItemElement.querySelector(".menuItemDescription")
+
+                menuItemTitle.textContent = menuItem.title.toUpperCase()
+                menuItemPrice.textContent = `$${menuItem.price}`
+                menuItemDescription.textContent = menuItem.description
+
+                menuItemElement.classList.add(menuItem.type)
+                menuItemElement.classList.add("menuItem")
+
+                let MenuMealSection = menuGrid.querySelector(`.${menuItem.type}-menu`)
+                MenuMealSection.appendChild(menuItemElement)
+            }
+        }
+
+        // ********** Back-End Menu Design **********
+
+        _makeMenuitem("Hot Dog", 20, "A meat thing that sits on some bread", "lunch")
+        _makeMenuitem("Pizza", 15, "A round thing with tomato paste and veggies", "lunch")
+        _makeMenuitem("Granola", 10, "A bowl of some oats and fruits with milk", "breakfast")
+        _makeMenuitem("Toast", 10, "Some bread with some other stuff on top", "breakfast")
+        _makeMenuitem("Spaghetti", 10, "This is a really long description designed to test the grid box behaviours. This is a really long description designed to test the grid box behaviours.", "Lunch")
+        _makeMenuitem("some other thing", 10, "This is another item", "lunch")
+        _makeMenuitem("Coffee", 10, "Some drink that keeps you awake", "drinks")
+        _makeMenuitem("Tapas", 10, "Spanish finger food", "snacks")
+
+        for (let i = 0; i < menuItems.length; i++) {
+            _insertMenuItemToDOM(menuItems[i])
+        }
+    })();
+
+    const menuImage = (function () {
+        const menuImageHolder = document.createElement("div")
+        menuImageHolder.setAttribute("id", "menuImageHolder")
+        menuCONTENT.appendChild(menuImageHolder)
+    })();
 
     return menuCONTENT
-
 }
 
 

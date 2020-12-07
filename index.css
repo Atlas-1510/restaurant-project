@@ -66,57 +66,30 @@ body {
 /* ************************************ Menu Stuff ************************************ */
 
 #menuGrid {
-    width: 50%;
-    height: auto;
+    /* display: flex;
+    flex-direction: row; */
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    margin: 1%;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 5%;
 }
 
-#menuGridAndImageHolder {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-#menuImageHolder {
-    width: 400px;
-    height: 267px;
-}
-
-.menuImage {
-    position: absolute;
-    display: block;
-
-    max-width: 400px;
-    height: auto;
-}
-
-#breakfastFlex {
+.mealTypeMenuSection {
     display: flex;
     flex-direction: column;
-    margin: inherit;
-}
-
-#lunchMenuGrid {
-    display: flex;
-    flex-direction: column;
-    margin: inherit;
+    /* align-items: center; */
 }
 
 .menuItem {
-display: grid;
-grid-template-rows: 25% 75%;
-grid-template-columns: 75% 25%;
-min-height: 60px;
-margin-top: 5%;
-margin-bottom: 5%;
+    display: flex;
+    flex-direction: column;
+    margin: 3% 0% 3% 0%;
 }
 
-.menuContent {
-    height: 100%;
+.menuTitleAndPriceHolder {
+    display: flex;
+    justify-content: space-between;
 }
 
-#viewImagePrompt {
-    text-align: center;
+.menuItemDescription {
+    margin: 2% 0% 2% 0%;
 }
