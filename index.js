@@ -33,7 +33,7 @@ page.appendChild(header);
 
 // Logo
 let logo = {
-    image: insertImage("./logo.png"),
+    image: insertImage(page, "./logo.png"),
     fadeOut() {
         logo.image.addEventListener("animationend", () => {
             logo.image.remove()
@@ -44,7 +44,7 @@ let logo = {
     fadeStatus: false,
 }
 
-page.appendChild(logo.image)
+// page.appendChild(logo.image)
 
 // Module Content Holder
 const moduleContentHolder = {

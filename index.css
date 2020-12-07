@@ -36,7 +36,6 @@ body {
 
 .fadeOut {
     animation: fadeOut var(--animation-duration);
-    /* animation: fadeOut 500ms; */
     animation-fill-mode: forwards;
 }
 
@@ -58,19 +57,65 @@ body {
 /* ************************************ Module Stuff ************************************ */
 
 #contentHolder {
-    width: 50%;
+    width: 80%;
+    height: auto;
 }
 
 
 /* ************************************ Menu Stuff ************************************ */
 
-.menuItem {
-    display: flex;
-    flex-direction: column;
-    width: 200px;
+#menuGrid {
+    width: 50%;
+    height: auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin: 1%;
 }
 
-.menuAndPriceHolder {
+#menuGridAndImageHolder {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
+    align-items: center;
+}
+
+#menuImageHolder {
+    width: 400px;
+    height: 267px;
+}
+
+.menuImage {
+    position: absolute;
+    display: block;
+
+    max-width: 400px;
+    height: auto;
+}
+
+#breakfastFlex {
+    display: flex;
+    flex-direction: column;
+    margin: inherit;
+}
+
+#lunchMenuGrid {
+    display: flex;
+    flex-direction: column;
+    margin: inherit;
+}
+
+.menuItem {
+display: grid;
+grid-template-rows: 25% 75%;
+grid-template-columns: 75% 25%;
+min-height: 60px;
+margin-top: 5%;
+margin-bottom: 5%;
+}
+
+.menuContent {
+    height: 100%;
+}
+
+#viewImagePrompt {
+    text-align: center;
 }
