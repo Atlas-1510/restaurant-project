@@ -162,21 +162,21 @@ export const generateMenuContent = () => {
         // ********** Insert Images **********
 
         // Logo
-        const logo = insertImage(menuImageHolder, "./img/logo.png", "mealImageLogo", "logo")
+        const logo = insertImage(menuImageHolder, "../img/logo.png", "mealImageLogo", "logo")
 
         // Food images
-        insertImage(menuImageHolder, "./img/brownie.jpg", "mealImage", "brownie")
-        insertImage(menuImageHolder, "./img/croissant.jpg", "mealImage", "croissant")
-        insertImage(menuImageHolder, "./img/coffee.jpg", "mealImage", "coffee")
-        insertImage(menuImageHolder, "./img/cocktail.jpg", "mealImage", "cocktail")
-        insertImage(menuImageHolder, "./img/coffeeAndDanish.jpg", "mealImage", "coffeeAndDanish")
-        insertImage(menuImageHolder, "./img/dishes.jpg", "mealImage", "dishes")
-        insertImage(menuImageHolder, "./img/sandwichOne.jpg", "mealImage", "sandwichOne")
-        insertImage(menuImageHolder, "./img/sandwichTwo.jpg", "mealImage", "sandwichTwo")
-        insertImage(menuImageHolder, "./img/tapas.jpg", "mealImage", "tapas")
-        insertImage(menuImageHolder, "./img/toast.jpg", "mealImage", "toast")
-        insertImage(menuImageHolder, "./img/granola.jpg", "mealImage", "granola")
-        insertImage(menuImageHolder, "./img/eggsAndBacon.jpg", "mealImage", "eggsAndBacon")
+        insertImage(menuImageHolder, "../img/brownie.jpg", "mealImage", "brownie")
+        insertImage(menuImageHolder, "../img/croissant.jpg", "mealImage", "croissant")
+        insertImage(menuImageHolder, "../img/coffee.jpg", "mealImage", "coffee")
+        insertImage(menuImageHolder, "../img/cocktail.jpg", "mealImage", "cocktail")
+        insertImage(menuImageHolder, "../img/coffeeAndDanish.jpg", "mealImage", "coffeeAndDanish")
+        insertImage(menuImageHolder, "../img/dishes.jpg", "mealImage", "dishes")
+        insertImage(menuImageHolder, "../img/sandwichOne.jpg", "mealImage", "sandwichOne")
+        insertImage(menuImageHolder, "../img/sandwichTwo.jpg", "mealImage", "sandwichTwo")
+        insertImage(menuImageHolder, "../img/tapas.jpg", "mealImage", "tapas")
+        insertImage(menuImageHolder, "../img/toast.jpg", "mealImage", "toast")
+        insertImage(menuImageHolder, "../img/granola.jpg", "mealImage", "granola")
+        insertImage(menuImageHolder, "../img/eggsAndBacon.jpg", "mealImage", "eggsAndBacon")
 
 
         // ********** Image Update When MouseOver Menu Item **********

@@ -17,35 +17,35 @@ export const generateContactContent = () => {
 
         const icons = (() => {
             const facebook = {
-                imageSource: "./img/icons/facebook.svg",
+                imageSource: "../img/icons/facebook.svg",
                 onClick: function () {
                     window.open("https://www.facebook.com/heartattackandvinebar/")
                 }
             }
 
             const twitter = {
-                imageSource: "./img/icons/twitter.svg",
+                imageSource: "../img/icons/twitter.svg",
                 onClick: function () {
                     window.open("https://twitter.com/home")
                 }
             }
 
             const instagram = {
-                imageSource: "./img/icons/instagram.svg",
+                imageSource: "../img/icons/instagram.svg",
                 onClick: function () {
                     window.open("https://www.instagram.com/heartattackandvinebar/?hl=en")
                 }
             }
 
             const phone = {
-                imageSource: "./img/icons/whatsapp.svg",
+                imageSource: "../img/icons/whatsapp.svg",
                 onClick: function () {
                     // TO DO
                 }
             }
 
             const email = {
-                imageSource: "./img/icons/telegram.svg",
+                imageSource: "../img/icons/telegram.svg",
                 onClick: function () {
                     // TO DO
                 }
@@ -103,44 +103,3 @@ export const generateContactContent = () => {
 
     return contactContent
 }
-
-
-// {/* <iframe width="600" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe> */ }
-
-// onst Icon = {
-//     source: 'none',
-//     insertIntoDOM: function () {
-//         if (this.source != 'none') {
-//             let image = insertImage(socialIconHolder, `./img/icons/${this.source}.svg`, "socialMediaIcon")
-//             image.setAttribute("id", `${this.source}Icon`)
-//         } else {
-//             console.log("Image source not provided")
-//         }
-//     },
-//     openFunction: function () {
-//         console.log("do something")
-//     }
-
-// }
-
-// const iconList = ["facebook", "instagram", "twitter", "whatsapp", "telegram"]
-
-// for (let i = 0; i < iconList.length; i++) {
-//     let iconObject = Object.create(Icon)
-//     iconObject.source = iconList[i]
-//     iconObject.insertIntoDOM()
-//     let iconElement = contactContent.querySelector(`#${iconObject.source}`)
-//     iconElement
-// }
-
-
-
-//     // insertImage(socialIconHolder, "./img/icons/facebook.svg", "socialMediaIcon")
-//     // insertImage(socialIconHolder, "./img/icons/instagram.svg", "socialMediaIcon")
-//     // insertImage(socialIconHolder, "./img/icons/twitter.svg", "socialMediaIcon")
-//     // insertImage(socialIconHolder, "./img/icons/whatsapp.svg", "socialMediaIcon")
-//     // insertImage(socialIconHolder, "./img/icons/telegram.svg", "socialMediaIcon")
-
-
-
-

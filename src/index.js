@@ -1,12 +1,9 @@
-import { generateTitle } from "./modules/utils/generateTitle.js"
-import { insertImage } from "./modules/utils/insertImage.js"
-import { makeHeaderButton } from "./modules/utils/makeHeaderButton.js"
-// import { headerButtonResponse } from "./modules/utils/headerButtonResponse.js"
-import { generateMenuContent } from "./modules/menu.js"
-import { generateAboutContent } from "./modules/about.js"
-import { generateNewsContent } from "./modules/news.js"
-import { generateContactContent } from "./modules/contact.js"
-import { clearModule } from "./modules/utils/clearModule.js"
+import { insertImage } from "../modules/utils/insertImage.js"
+import { makeHeaderButton } from "../modules/utils/makeHeaderButton.js"
+import { generateMenuContent } from "../modules/menu.js"
+import { generateAboutContent } from "../modules/about.js"
+import { generateNewsContent } from "../modules/news.js"
+import { generateContactContent } from "../modules/contact.js"
 
 
 const page = document.getElementById("container")
@@ -33,7 +30,7 @@ page.appendChild(header);
 
 // Logo
 let logo = {
-    image: insertImage(page, "./img/logo.png"),
+    image: insertImage(page, "../img/logo.png"),
     fadeOut() {
         logo.image.addEventListener("animationend", () => {
             logo.image.remove()
@@ -89,7 +86,6 @@ const headerButtonResponse = (button, buttonContentGenerator) => {
                 moduleContentHolder.deleteHolder()
                 let contentHolder = moduleContentHolder.createHolder()
                 let content = buttonContentGenerator()
-                console.log(content)
                 contentHolder.appendChild(content)
                 moduleContentHolder.fadeInHolder()
             }, fadeAnimationLength)
