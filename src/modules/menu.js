@@ -1,5 +1,18 @@
 import { insertImage } from "./utils/insertImage.js"
 import { capitaliseFirstLetter } from "./utils/capitaliseFirstLetter.js"
+import logoImage from "../img/logo.png"
+import brownie from "../img/brownie.jpg"
+import croissant from "../img/croissant.jpg"
+import coffee from "../img/coffee.jpg"
+import cocktail from "../img/cocktail.jpg"
+import coffeeAndDanish from "../img/coffeeAndDanish.jpg"
+import dishes from "../img/dishes.jpg"
+import sandwichOne from "../img/sandwichOne.jpg"
+import sandwichTwo from "../img/sandwichTwo.jpg"
+import tapas from "../img/tapas.jpg"
+import toast from "../img/toast.jpg"
+import granola from "../img/granola.jpg"
+import eggsAndBacon from "../img/eggsAndBacon.jpg"
 
 export const generateMenuContent = () => {
 
@@ -162,21 +175,21 @@ export const generateMenuContent = () => {
         // ********** Insert Images **********
 
         // Logo
-        const logo = insertImage(menuImageHolder, "../img/logo.png", "mealImageLogo", "logo")
+        const logo = insertImage(menuImageHolder, logoImage, "mealImageLogo", "logo")
 
         // Food images
-        insertImage(menuImageHolder, "../img/brownie.jpg", "mealImage", "brownie")
-        insertImage(menuImageHolder, "../img/croissant.jpg", "mealImage", "croissant")
-        insertImage(menuImageHolder, "../img/coffee.jpg", "mealImage", "coffee")
-        insertImage(menuImageHolder, "../img/cocktail.jpg", "mealImage", "cocktail")
-        insertImage(menuImageHolder, "../img/coffeeAndDanish.jpg", "mealImage", "coffeeAndDanish")
-        insertImage(menuImageHolder, "../img/dishes.jpg", "mealImage", "dishes")
-        insertImage(menuImageHolder, "../img/sandwichOne.jpg", "mealImage", "sandwichOne")
-        insertImage(menuImageHolder, "../img/sandwichTwo.jpg", "mealImage", "sandwichTwo")
-        insertImage(menuImageHolder, "../img/tapas.jpg", "mealImage", "tapas")
-        insertImage(menuImageHolder, "../img/toast.jpg", "mealImage", "toast")
-        insertImage(menuImageHolder, "../img/granola.jpg", "mealImage", "granola")
-        insertImage(menuImageHolder, "../img/eggsAndBacon.jpg", "mealImage", "eggsAndBacon")
+        insertImage(menuImageHolder, brownie, "mealImage", "brownie")
+        insertImage(menuImageHolder, croissant, "mealImage", "croissant")
+        insertImage(menuImageHolder, coffee, "mealImage", "coffee")
+        insertImage(menuImageHolder, cocktail, "mealImage", "cocktail")
+        insertImage(menuImageHolder, coffeeAndDanish, "mealImage", "coffeeAndDanish")
+        insertImage(menuImageHolder, dishes, "mealImage", "dishes")
+        insertImage(menuImageHolder, sandwichOne, "mealImage", "sandwichOne")
+        insertImage(menuImageHolder, sandwichTwo, "mealImage", "sandwichTwo")
+        insertImage(menuImageHolder, tapas, "mealImage", "tapas")
+        insertImage(menuImageHolder, toast, "mealImage", "toast")
+        insertImage(menuImageHolder, granola, "mealImage", "granola")
+        insertImage(menuImageHolder, eggsAndBacon, "mealImage", "eggsAndBacon")
 
 
         // ********** Image Update When MouseOver Menu Item **********

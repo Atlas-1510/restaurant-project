@@ -1,9 +1,12 @@
-import { insertImage } from "../modules/utils/insertImage.js"
-import { makeHeaderButton } from "../modules/utils/makeHeaderButton.js"
-import { generateMenuContent } from "../modules/menu.js"
-import { generateAboutContent } from "../modules/about.js"
-import { generateNewsContent } from "../modules/news.js"
-import { generateContactContent } from "../modules/contact.js"
+import { insertImage } from "./modules/utils/insertImage.js"
+import { makeHeaderButton } from "./modules/utils/makeHeaderButton.js"
+import { generateMenuContent } from "./modules/menu.js"
+import { generateAboutContent } from "./modules/about.js"
+import { generateNewsContent } from "./modules/news.js"
+import { generateContactContent } from "./modules/contact.js"
+import "./index.css"
+import logoImage from "./img/logo.png"
+
 
 
 const page = document.getElementById("container")
@@ -30,7 +33,7 @@ page.appendChild(header);
 
 // Logo
 let logo = {
-    image: insertImage(page, "../img/logo.png"),
+    image: insertImage(page, logoImage),
     fadeOut() {
         logo.image.addEventListener("animationend", () => {
             logo.image.remove()
@@ -40,8 +43,6 @@ let logo = {
     },
     fadeStatus: false,
 }
-
-// page.appendChild(logo.image)
 
 // Module Content Holder
 const moduleContentHolder = {
