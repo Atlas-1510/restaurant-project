@@ -1,4 +1,11 @@
 import { insertImage } from "./utils/insertImage.js"
+import facebookImage from "../img/icons/facebook.svg"
+import twitterImage from "../img/icons/twitter.svg"
+import instagramImage from "../img/icons/instagram.svg"
+import whatsappImage from "../img/icons/whatsapp.svg"
+import telegramImage from "../img/icons/telegram.svg"
+
+
 
 export const generateContactContent = () => {
 
@@ -17,35 +24,35 @@ export const generateContactContent = () => {
 
         const icons = (() => {
             const facebook = {
-                imageSource: "../img/icons/facebook.svg",
+                imageSource: facebookImage,
                 onClick: function () {
                     window.open("https://www.facebook.com/heartattackandvinebar/")
                 }
             }
 
             const twitter = {
-                imageSource: "../img/icons/twitter.svg",
+                imageSource: twitterImage,
                 onClick: function () {
                     window.open("https://twitter.com/home")
                 }
             }
 
             const instagram = {
-                imageSource: "../img/icons/instagram.svg",
+                imageSource: instagramImage,
                 onClick: function () {
                     window.open("https://www.instagram.com/heartattackandvinebar/?hl=en")
                 }
             }
 
             const phone = {
-                imageSource: "../img/icons/whatsapp.svg",
+                imageSource: whatsappImage,
                 onClick: function () {
                     // TO DO
                 }
             }
 
             const email = {
-                imageSource: "../img/icons/telegram.svg",
+                imageSource: telegramImage,
                 onClick: function () {
                     // TO DO
                 }
