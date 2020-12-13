@@ -33,7 +33,7 @@ page.appendChild(header);
 
 // Logo
 let logo = {
-    image: insertImage(page, "./logo.png"),
+    image: insertImage(page, "./img/logo.png"),
     fadeOut() {
         logo.image.addEventListener("animationend", () => {
             logo.image.remove()
@@ -80,7 +80,6 @@ const headerButtonResponse = (button, buttonContentGenerator) => {
             setTimeout(function () {
                 let contentHolder = moduleContentHolder.createHolder()
                 let content = buttonContentGenerator()
-                console.log(content)
                 contentHolder.appendChild(content)
                 moduleContentHolder.fadeInHolder()
             }, fadeAnimationLength)

@@ -1,16 +1,18 @@
-import { generateTitle } from "./utils/generateTitle.js"
 import { insertImage } from "./utils/insertImage.js"
 import { capitaliseFirstLetter } from "./utils/capitaliseFirstLetter.js"
 
-export const generatemenuContent = () => {
+export const generateMenuContent = () => {
 
     // ********** Module Setup **********
 
     const menuContent = document.createElement("div")
+    menuContent.setAttribute("id", "menuContent")
+    menuContent.classList.add("content")
 
     // ********** Menu info and layout **********
 
     const menuInfo = (function () {
+
         // ********** Menu Data Set Up **********
 
         const menuTypes = ["Breakfast", "Lunch", "Snacks", "Drinks"]
@@ -94,19 +96,58 @@ export const generatemenuContent = () => {
 
         // ********** Back-End Menu Design **********
 
-        _makeMenuitem("Hot Dog", 20, "A meat thing that sits on some bread", "lunch")
-        _makeMenuitem("Pizza", 15, "A round thing with tomato paste and veggies", "lunch")
-        _makeMenuitem("Granola", 10, "A bowl of some oats and fruits with milk", "breakfast")
-        _makeMenuitem("Toast", 10, "Some bread with some other stuff on top", "breakfast")
-        _makeMenuitem("Spaghetti", 10, "This is a really long description designed to test the grid box behaviours. This is a really long description designed to test the grid box behaviours.", "Lunch")
-        _makeMenuitem("some other thing", 10, "This is another item", "lunch")
-        _makeMenuitem("Coffee", 10, "Some drink that keeps you awake", "drinks")
-        _makeMenuitem("Tapas", 10, "Spanish finger food", "snacks")
+        _makeMenuitem("Brownie", 20, "A chocolate delight, very tasty!", "Snacks", "brownie")
+        _makeMenuitem("Cocktail", 15, "An alcoholic red drink with some lemon", "Drinks", "cocktail")
+        _makeMenuitem("Croissant", 10, "A french danish with some jam", "Snacks", "croissant")
+        _makeMenuitem("Boccocini Roll", 10, "A cheese-stuffed sandwich", "Lunch", "sandwichOne")
+        _makeMenuitem("Roll of the Day", 10, "A roll made with leftovers. Yum!", "Lunch", "sandwichTwo")
+        _makeMenuitem("Mystery Dishes", 13, "Try your luck, see what you get!", "Lunch", "dishes")
+        _makeMenuitem("Coffee and Danish", 18, "Two is better than one!", "Snacks", "coffeeAndDanish")
+        _makeMenuitem("Tapas", 14, "Spanish finger food", "Snacks", "tapas")
+        _makeMenuitem("Coffee", 10, "The best brew in Melbourne!", "Drinks", "coffee")
+        _makeMenuitem("Toast", 6, "Bread with spread. Nothing better!", "Breakfast", "toast")
+        _makeMenuitem("granola", 15, "Homemade granola with almond milk and honey", "Breakfast", "granola")
+        _makeMenuitem("Eggs and Bacon", 10, "Unborn chicken and dead pig. Delish!", "Breakfast", "eggsAndBacon")
 
         for (let i = 0; i < menuItems.length; i++) {
             _insertMenuItemToDOM(menuItems[i])
         }
     })();
+
+    // ********** Disclaimers and notes at bottom of menu **********
+
+    const disclaimers = (function () {
+        const disclaimerDiv = document.createElement("div")
+        disclaimerDiv.setAttribute("id", "menuDisclaimer")
+        menuContent.appendChild(disclaimerDiv)
+
+        // ********** Breakup of disclaimer text for CSS styles **********
+
+        let spanOne = document.createElement("span")
+        spanOne.textContent = "Hover your mouse "
+        let spanTwo = document.createElement("span")
+        spanTwo.textContent = "over our menu "
+        let spanThree = document.createElement("span")
+        spanThree.textContent = "to see a preview of "
+        let spanFour = document.createElement("span")
+        spanFour.textContent = "our delicious offerings!"
+
+        spanOne.classList.add("bouncy")
+        spanTwo.classList.add("bouncy")
+        spanThree.classList.add("bouncy")
+        spanFour.classList.add("bouncy")
+
+        spanOne.style.animationDelay = "0.07s"
+        spanTwo.style.animationDelay = "0.14s"
+        spanThree.style.animationDelay = "0.21s"
+        spanFour.style.animationDelay = "0.28s"
+
+
+        disclaimerDiv.appendChild(spanOne)
+        disclaimerDiv.appendChild(spanTwo)
+        disclaimerDiv.appendChild(spanThree)
+        disclaimerDiv.appendChild(spanFour)
+    })()
 
     // ********** Menu images **********
 
@@ -118,7 +159,51 @@ export const generatemenuContent = () => {
         menuImageHolder.setAttribute("id", "menuImageHolder")
         menuContent.appendChild(menuImageHolder)
 
+        // ********** Insert Images **********
 
+        // Logo
+        const logo = insertImage(menuImageHolder, "./img/logo.png", "mealImageLogo", "logo")
+
+        // Food images
+        insertImage(menuImageHolder, "./img/brownie.jpg", "mealImage", "brownie")
+        insertImage(menuImageHolder, "./img/croissant.jpg", "mealImage", "croissant")
+        insertImage(menuImageHolder, "./img/coffee.jpg", "mealImage", "coffee")
+        insertImage(menuImageHolder, "./img/cocktail.jpg", "mealImage", "cocktail")
+        insertImage(menuImageHolder, "./img/coffeeAndDanish.jpg", "mealImage", "coffeeAndDanish")
+        insertImage(menuImageHolder, "./img/dishes.jpg", "mealImage", "dishes")
+        insertImage(menuImageHolder, "./img/sandwichOne.jpg", "mealImage", "sandwichOne")
+        insertImage(menuImageHolder, "./img/sandwichTwo.jpg", "mealImage", "sandwichTwo")
+        insertImage(menuImageHolder, "./img/tapas.jpg", "mealImage", "tapas")
+        insertImage(menuImageHolder, "./img/toast.jpg", "mealImage", "toast")
+        insertImage(menuImageHolder, "./img/granola.jpg", "mealImage", "granola")
+        insertImage(menuImageHolder, "./img/eggsAndBacon.jpg", "mealImage", "eggsAndBacon")
+
+
+        // ********** Image Update When MouseOver Menu Item **********
+
+        const _revealImage = (imageElement) => {
+            imageElement.style.opacity = "1"
+            logo.style.opacity = "0"
+        }
+
+        const _hideImage = (imageElement) => {
+            imageElement.style.opacity = "0"
+            logo.style.opacity = "1"
+        }
+
+
+        const menuItems = Array.from(menuContent.querySelectorAll(".menuItem"))
+
+        for (let i = 0; i < menuItems.length; i++) {
+
+            let menuItem = menuItems[i]
+            let imageName = menuItem.dataset.image
+            if (imageName != "blank") {
+                let imageElement = menuContent.querySelector(`[data-image="${imageName}"].mealImage`)
+                menuItem.addEventListener("mouseenter", function () { _revealImage(imageElement) })
+                menuItem.addEventListener("mouseleave", function () { _hideImage(imageElement) })
+            }
+        }
     })();
 
     return menuContent
