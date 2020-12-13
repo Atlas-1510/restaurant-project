@@ -7,8 +7,6 @@ import { generateContactContent } from "./modules/contact.js"
 import "./index.css"
 import logoImage from "./img/logo.png"
 
-
-
 const page = document.getElementById("container")
 
 // CSS Animation stuff
